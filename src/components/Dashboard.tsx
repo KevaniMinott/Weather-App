@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { Cards } from './Cards';
 import { Search } from './Search';
 
 export function Dashboard() {
+  useEffect(() => {
+    fetch(
+      'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={3cd9399c66c69e503544aee4c990e556}&units=metric',
+    );
+  }, []);
   return (
-    <main className="w-screen h-screen bg-[rgb(1,5,44)] fixed overflow-scroll ">
+    <main className="w-screen h-screen bg-[rgb(3,1,45)] fixed overflow-scroll ">
       <h2 className="text-white font-sans ml-[100px] font-semibold text-[25px]">
         Weather App
       </h2>
