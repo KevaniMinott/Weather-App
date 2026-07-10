@@ -1,4 +1,9 @@
-export function Cards() {
+import type { dashboardProp } from './Dashboard';
+
+interface CardsProp {
+  dashboardData: dashboardProp | null;
+}
+export function Cards({ dashboardData }: CardsProp) {
   const dow = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
   const stats = ['Humidity', 'Wind', 'Feels like', 'Precip'];
   return (
@@ -10,7 +15,9 @@ export function Cards() {
             <p className="text-white/60">Tuesday jun 5, 2026</p>
           </div>
 
-          <p className="text-white text-[90px]">32*</p>
+          <p className="text-white text-[90px]">
+            {dashboardData?.main.temp_min}
+          </p>
         </article>
         <div className="w-full h-ful flex flex-col gap-[30px] justify-center items-center">
           <section className="flex gap-7">
